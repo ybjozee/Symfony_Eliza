@@ -7,14 +7,15 @@
         "php": ">=8.0.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^1.13",
         "symfony/console": "6.0.*",
         "symfony/dotenv": "6.0.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.0.*",
+        "symfony/monolog-bundle": "^3.7",
         "symfony/runtime": "6.0.*",
-        "symfony/yaml": "6.0.*"
-    },
-    "require-dev": {
+        "symfony/yaml": "6.0.*",
+        "twilio/sdk": "^6.36"
     },
     "config": {
         "allow-plugins": {
@@ -47,8 +48,10 @@
         "symfony/polyfill-php80": "*"
     },
     "scripts": {
-        "auto-scripts": [
-        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
         "post-install-cmd": [
             "@auto-scripts"
         ],
@@ -64,5 +67,8 @@
             "allow-contrib": false,
             "require": "6.0.*"
         }
+    },
+    "require-dev": {
+        "symfony/maker-bundle": "^1.40"
     }
 }
